@@ -1,4 +1,4 @@
-name = 'THEMETITLE'
+name = 'moviapp'
 description = Uses the Bootstrap Framework Less source files and must be compiled (not for beginners).
 core = 7.x
 base theme = bootstrap
