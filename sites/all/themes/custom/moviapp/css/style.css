@@ -7583,3 +7583,7 @@ a.icon-after .glyphicon {
   margin-left: .25em;
   margin-right: -0.25em;
 }
+section#block-block-5,
+section#block-views-carrusel-block {
+  margin: 30px auto;
+}
