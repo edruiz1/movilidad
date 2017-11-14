@@ -7609,4 +7609,5 @@ section#block-views-carrusel-block {
 }
 .page-header {
   text-align: center;
+  display: none;
 }
