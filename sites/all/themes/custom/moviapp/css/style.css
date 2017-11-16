@@ -7611,3 +7611,6 @@ section#block-views-carrusel-block {
   text-align: center;
   display: none;
 }
+header#navbar {
+  display: none;
+}
