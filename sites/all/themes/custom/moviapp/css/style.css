@@ -7617,7 +7617,8 @@ header#navbar {
 }
 .que-es-block,
 .manual-block,
-.biciviajes-block .block-descargas {
+.biciviajes-block,
+.block-descargas {
   margin: 1em auto;
   font-family: 'raleway';
 }
