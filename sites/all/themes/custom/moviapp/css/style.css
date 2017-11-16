@@ -1,3 +1,4 @@
+@import '../css/fonts/fonts.css';
 /**
  * Variable Overrides.
  *
@@ -7613,4 +7614,9 @@ section#block-views-carrusel-block {
 }
 header#navbar {
   display: none;
+}
+.que-es-block,
+.manual-block,
+.biciviajes-block {
+  font-family: 'raleway';
 }
