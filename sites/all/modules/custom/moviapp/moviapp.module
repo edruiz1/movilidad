@@ -1,0 +1,72 @@
+<?php
+/**
+ * @file
+ * Defines banrep_core module functionality.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function moviapp_menu() {
+
+  
+
+  $items['movcom/dominio/crear'] = array(
+    'title' => 'Crear domino',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('moviapp_dominio_form',1),
+    'access callback' => TRUE,
+    'access arguments' =>array('administer settings'),
+    'file' => 'moviapp.forms.inc',
+  );
+
+  $items['movcom/dominio/%/editar'] = array(
+    'title' => 'Editar dominio',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('moviapp_dominio_form',1,2),
+    'access callback' => TRUE,
+    'access arguments' => array('Editar rutas'),
+    'file' => 'moviapp.forms.inc',
+  );
+  $items['movcom/secretaria/crear'] = array(
+    'title' => 'Crear domino',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('moviapp_dominio_form',1),
+    'access callback' => TRUE,
+    'access arguments' =>array('administer settings'),
+    'file' => 'moviapp.forms.inc',
+  );
+
+  $items['movcom/secretaria/%/editar'] = array(
+    'title' => 'Editar dominio',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('moviapp_dominio_form',1,2),
+    'access callback' => TRUE,
+    'access arguments' => array('Editar rutas'),
+    'file' => 'moviapp.forms.inc',
+  );
+
+  $items['movcom/entidad/crear'] = array(
+    'title' => 'Crear domino',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('moviapp_dominio_form',1),
+    'access callback' => TRUE,
+    'access arguments' =>array('administer settings'),
+    'file' => 'moviapp.forms.inc',
+  );
+
+  $items['movcom/entidad/%/editar'] = array(
+    'title' => 'Editar dominio',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('moviapp_dominio_form',1,2),
+    'access callback' => TRUE,
+    'access arguments' => array('Editar rutas'),
+    'file' => 'moviapp.forms.inc',
+  );
+
+  return $items;
+}
+
+
+
+
