@@ -93,7 +93,6 @@ function moviapp_dominio_form($form, &$form_state, $type = NULL,$id = NULL) {
 
 
 function moviapp_dominio_form_submit($form, &$form_state) {
-  drupal_set_message('<pre>'.print_r($form_state['values'],true).'</pre>');
   $tipo   = $form_state['values']['tipo'];
   $values = $form_state['values'][$tipo];
   switch ($tipo) {
@@ -111,6 +110,7 @@ function moviapp_dominio_form_submit($form, &$form_state) {
       break;
     
   }
+
   if (isset($form_state['values']['id']) && 
       !empty($form_state['values']['id']) && 
       $form_state['values'] > 0){
@@ -119,7 +119,6 @@ function moviapp_dominio_form_submit($form, &$form_state) {
   else {
       $id = _add_moviapp($table,$values);  
   }
-  
 }
 
 function moviapp_list_page($type){
