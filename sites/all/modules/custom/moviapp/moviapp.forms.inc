@@ -121,3 +121,61 @@ function moviapp_dominio_form_submit($form, &$form_state) {
   }
   
 }
+
+function moviapp_list_page($type){
+   $result = _get_all_moviapp('movcom_'.$type);
+   $rows   = array();
+   $headers = array();
+   $flag_first = true;
+   foreach ($result as $value) {
+       $row = (array)$value;
+       if ($type == 'entidades'){
+          unset($row['secretaria_id']);
+       }
+       if ($flag_first){
+           $flag_first = FALSE;
+           foreach ($row as $key => $field) {
+             $headers[$key] = $key;
+           }
+           $headers['editar'] = 'Editar';
+
+       }
+       switch ($type) {
+         case 'dominios':
+            $row['editar'] = '<a href="/movcom/dominio/'.$row['dominio_id'].'/editar">Editar</a>';
+            if ($row['dominio_estado'] == 1){
+               $row['dominio_estado'] = 'SI';
+            }
+            else {
+               $row['dominio_estado'] = 'NO';
+            }
+           break;
+         case 'secretarias':
+            $row['editar'] = '<a href="/movcom/secretaria/'.$row['secretaria_id'].'/editar">Editar</a>';
+           break;
+         case 'entidades':
+            $row['editar'] = '<a href="/movcom/entidad/'.$row['entidad_id'].'/editar">Editar</a>';
+           break;
+       }
+       $rows[] = $row;
+   }
+
+   switch ($type) {
+     case 'dominios':
+        $buttom = '<a class="btn btn-success" href="/movcom/dominio/crear">Crear Dominio</a>';
+       break;
+     case 'secretarias':
+        $buttom = '<a class="btn btn-success" href="/movcom/secretaria/crear">Crear Secretaria</a>';
+       break;
+     case 'entidades':
+        $buttom = '<a class="btn btn-success" href="/movcom/entidad/crear">Crear Entidad</a>';
+       break;
+   }
+
+   $per_page = 10;
+   $current_page = pager_default_initialize(count($rows), $per_page);
+   $chunks  = array_chunk($rows, $per_page, TRUE);   
+   $output  = theme('table', array('header' => $headers, 'rows' => $chunks[$current_page])). $buttom;
+   $output .= theme('pager', array('quantity',count($rows))); 
+   return $output;
+}

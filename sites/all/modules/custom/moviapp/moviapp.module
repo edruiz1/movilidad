@@ -10,6 +10,15 @@
 function moviapp_menu() {
 
   
+  $items['movcom/dominios'] = array(
+    'title' => 'Editar dominio',
+    'page callback' => 'moviapp_list_page',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'access arguments' =>array('administer settings'),
+    'file' => 'moviapp.forms.inc',
+  );
+
 
   $items['movcom/dominio/crear'] = array(
     'title' => 'Crear domino',
@@ -25,7 +34,7 @@ function moviapp_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('moviapp_dominio_form',1,2),
     'access callback' => TRUE,
-    'access arguments' => array('Editar rutas'),
+    'access arguments' =>array('administer settings'),
     'file' => 'moviapp.forms.inc',
   );
   $items['movcom/secretaria/crear'] = array(
@@ -37,12 +46,31 @@ function moviapp_menu() {
     'file' => 'moviapp.forms.inc',
   );
 
+  $items['movcom/secretarias'] = array(
+    'title' => 'Editar dominio',
+    'page callback' => 'moviapp_list_page',
+    'access callback' => TRUE,
+    'page arguments' => array(1),
+    'access arguments' =>array('administer settings'),
+    'file' => 'moviapp.forms.inc',
+  );
+
+
   $items['movcom/secretaria/%/editar'] = array(
     'title' => 'Editar dominio',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('moviapp_dominio_form',1,2),
     'access callback' => TRUE,
-    'access arguments' => array('Editar rutas'),
+    'access arguments' =>array('administer settings'),
+    'file' => 'moviapp.forms.inc',
+  );
+
+  $items['movcom/entidades'] = array(
+    'title' => 'Editar dominio',
+    'page callback' => 'moviapp_list_page',
+    'access callback' => TRUE,
+    'access arguments' =>array('administer settings'),
+    'page arguments' => array(1),
     'file' => 'moviapp.forms.inc',
   );
 
@@ -60,7 +88,7 @@ function moviapp_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('moviapp_dominio_form',1,2),
     'access callback' => TRUE,
-    'access arguments' => array('Editar rutas'),
+    'access arguments' =>array('administer settings'),
     'file' => 'moviapp.forms.inc',
   );
 

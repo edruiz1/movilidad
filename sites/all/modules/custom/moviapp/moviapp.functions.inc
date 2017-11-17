@@ -63,3 +63,24 @@ function _get_options_secretaria(){
   return $options;
 
 }
+
+
+
+function _get_all_moviapp($table){
+  db_set_active('moviapp');
+
+  $query = db_select($table,'t')
+  ->fields('t');
+  if ($table == 'movcom_entidades'){
+     $query->addField('s','secretaria_nombre','secretaria');
+     $query->leftJoin('movcom_secretarias','s','s.secretaria_id = t.secretaria_id');
+  }
+  $result = $query->execute()->fetchAll();
+
+  db_set_active();
+
+
+  return $result;
+
+}
+
