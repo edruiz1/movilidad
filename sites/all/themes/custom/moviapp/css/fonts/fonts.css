@@ -1,13 +1,12 @@
 @font-face {
   font-family: 'raleway';
   font-style: normal;
-  font-weight: bolder;
-  src:  url('ralewayextrabold.ttf') format('truetype');
+  font-weight: normal;
+  src:  url('ralewaysemibold.ttf') format('truetype');
 }
-
 @font-face {
   font-family: 'raleway';
   font-style: normal;
-  font-weight: bold;
-  src:  url('ralewaysemibold.ttf') format('truetype');
+  font-weight: bolder;
+  src:  url('ralewayextrabold.ttf') format('truetype');
 }
