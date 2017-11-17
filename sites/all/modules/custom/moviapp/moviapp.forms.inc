@@ -142,7 +142,7 @@ function moviapp_list_page($type){
        }
        switch ($type) {
          case 'dominios':
-            $row['editar'] = '<a href="/movcom/dominio/'.$row['dominio_id'].'/editar">Editar</a>';
+            $row['editar'] = '<a href="/movilidad/movcom/dominio/'.$row['dominio_id'].'/editar">Editar</a>';
             if ($row['dominio_estado'] == 1){
                $row['dominio_estado'] = 'SI';
             }
@@ -151,10 +151,10 @@ function moviapp_list_page($type){
             }
            break;
          case 'secretarias':
-            $row['editar'] = '<a href="/movcom/secretaria/'.$row['secretaria_id'].'/editar">Editar</a>';
+            $row['editar'] = '<a href="/movilidad/movcom/secretaria/'.$row['secretaria_id'].'/editar">Editar</a>';
            break;
          case 'entidades':
-            $row['editar'] = '<a href="/movcom/entidad/'.$row['entidad_id'].'/editar">Editar</a>';
+            $row['editar'] = '<a href="/movilidad/movcom/entidad/'.$row['entidad_id'].'/editar">Editar</a>';
            break;
        }
        $rows[] = $row;
@@ -162,13 +162,13 @@ function moviapp_list_page($type){
 
    switch ($type) {
      case 'dominios':
-        $buttom = '<a class="btn btn-success" href="/movcom/dominio/crear">Crear Dominio</a>';
+        $buttom = '<a class="btn btn-success" href="/movilidad/movcom/dominio/crear">Crear Dominio</a>';
        break;
      case 'secretarias':
-        $buttom = '<a class="btn btn-success" href="/movcom/secretaria/crear">Crear Secretaria</a>';
+        $buttom = '<a class="btn btn-success" href="/movilidad/movcom/secretaria/crear">Crear Secretaria</a>';
        break;
      case 'entidades':
-        $buttom = '<a class="btn btn-success" href="/movcom/entidad/crear">Crear Entidad</a>';
+        $buttom = '<a class="btn btn-success" href="/movilidad/movcom/entidad/crear">Crear Entidad</a>';
        break;
    }
 
