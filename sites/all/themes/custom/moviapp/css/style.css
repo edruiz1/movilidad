@@ -7595,7 +7595,6 @@ a.icon-after .glyphicon {
 /* MoviApp */
 body {
   font-family: 'raleway';
-  font-weight: bold;
 }
 .carousel-caption a {
   color: #fff;
@@ -7611,6 +7610,12 @@ section#block-views-carrusel-block {
 .block-header img {
   width: 85%;
   margin: 0 auto;
+}
+.front .page-header {
+  display: none;
+}
+.page-header {
+  color: #16a085;
 }
 .que-es-block,
 .manual-block,
