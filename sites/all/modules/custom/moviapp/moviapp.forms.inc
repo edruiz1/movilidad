@@ -178,3 +178,58 @@ function moviapp_list_page($type){
    $output .= theme('pager', array('quantity',count($rows))); 
    return $output;
 }
+
+function moviapp_reports($type){
+   $result = _get_report_moviapp($type);
+   $rows   = array();
+   $headers = array();
+   $flag_first = true;
+   foreach ($result as $value) {
+       $row = (array)$value;
+       if ($type == 'entidades'){
+          unset($row['secretaria_id']);
+       }
+       if ($flag_first){
+           $flag_first = FALSE;
+           foreach ($row as $key => $field) {
+             $headers[$key] = $key;
+           }
+
+       }
+       $rows[] = $row;
+   }
+   $per_page = 10;
+   $current_page = pager_default_initialize(count($rows), $per_page);
+   $chunks  = array_chunk($rows, $per_page, TRUE);   
+   $form = drupal_get_form('moviapp_report_form',$type);
+   $output  = drupal_render($form);
+   $output .= theme('table', array('header' => $headers, 'rows' => $chunks[$current_page]));
+   $output .= theme('pager', array('quantity',count($rows))); 
+   return $output;
+}
+
+function moviapp_report_form($form, &$form_state,$type=NULL) {
+
+
+  $options = array('Selecionar','Usuarios registrados','Vehiculos registrados','Rutas registradas','Biciviajes','Sitios favoritos');
+    $form = array();
+    $form['type'] = array(
+      '#type'=>'select',
+      '#title' => 'Reporte',
+      '#description '=> 'Seleccione el reporte a generar',
+      '#options'=>$options,
+      '#required' => true,
+      '#default_value' => $type,
+      );
+
+    $form['generar']=array(
+        '#type'=>'submit',
+        '#value'=>'Generar'
+      );
+
+    return $form;
+  }
+
+function moviapp_report_form_submit($form, &$form_state) {
+     drupal_goto('/movcom/reportes/'.$form_state['values']['type']);
+}

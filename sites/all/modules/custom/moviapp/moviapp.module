@@ -92,6 +92,25 @@ function moviapp_menu() {
     'file' => 'moviapp.forms.inc',
   );
 
+  $items['movcom/generar/reporte'] = array(
+    'title' => 'Generar reportes',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('moviapp_report_form'),
+    'access callback' => TRUE,
+    'access arguments' =>array('administer settings'),
+    'file' => 'moviapp.forms.inc',
+  );
+
+  $items['movcom/reportes/%'] = array(
+    'title' => 'Reportes moviapp',
+    'page callback' => 'moviapp_reports',
+    'access callback' => TRUE,
+    'page arguments' => array(2),
+    'access arguments' =>array('administer settings'),
+    'file' => 'moviapp.forms.inc',
+  );
+
+
   return $items;
 }
 
