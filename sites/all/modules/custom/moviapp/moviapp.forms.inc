@@ -231,5 +231,5 @@ function moviapp_report_form($form, &$form_state,$type=NULL) {
   }
 
 function moviapp_report_form_submit($form, &$form_state) {
-     drupal_goto('/movilidad/movcom/reportes/'.$form_state['values']['type']);
+     drupal_goto('/movcom/reportes/'.$form_state['values']['type']);
 }
